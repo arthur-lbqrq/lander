@@ -3,7 +3,18 @@ import { ImageResponse } from "next/og";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpengraphImage() {
+async function loadSpaceGrotesk() {
+  const css = await fetch(
+    "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&text=lander.co"
+  ).then((res) => res.text());
+  const match = css.match(/src: url\((.+?)\) format\('(?:opentype|truetype)'\)/);
+  if (!match) throw new Error("Space Grotesk font source not found");
+  return fetch(match[1]).then((res) => res.arrayBuffer());
+}
+
+export default async function OpengraphImage() {
+  const spaceGrotesk = await loadSpaceGrotesk();
+
   return new ImageResponse(
     (
       <div
@@ -21,41 +32,51 @@ export default function OpengraphImage() {
         <svg
           width="96"
           height="96"
-          viewBox="0 0 24 24"
+          viewBox="-3 -3 66 66"
           fill="none"
           style={{ marginBottom: 32 }}
         >
           <rect
-            x="2.5"
-            y="4"
-            width="19"
-            height="16"
-            rx="2.5"
+            x="0"
+            y="0"
+            width="60"
+            height="60"
+            rx="14"
+            fill="none"
             stroke="#FAFAFA"
-            strokeWidth="1.4"
+            strokeWidth="5"
           />
-          <line
-            x1="2.5"
-            y1="8.4"
-            x2="21.5"
-            y2="8.4"
-            stroke="#FAFAFA"
-            strokeWidth="1.4"
-            strokeOpacity="0.5"
-          />
+          <rect x="0" y="0" width="60" height="16" rx="14" fill="#FAFAFA" />
           <path
-            d="M13 10L19 13.2L15.7 14.35L17.6 18.2L16 19L14.1 15.15L11.9 17Z"
-            fill="#2D5CFF"
+            d="M30 26L30 48M30 48L20 38M30 48L40 38"
+            stroke="#2D5CFF"
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
-        <div style={{ display: "flex", fontSize: 72, fontWeight: 700, letterSpacing: -1 }}>
-          lander.co
+        <div
+          style={{
+            display: "flex",
+            fontFamily: "Space Grotesk",
+            fontWeight: 500,
+            fontSize: 72,
+            letterSpacing: -2.2,
+          }}
+        >
+          lander
+          <span style={{ color: "#2D5CFF" }}>.co</span>
         </div>
         <div style={{ display: "flex", marginTop: 20, fontSize: 28, color: "#68686C" }}>
           Landing pages rápidas, feitas para converter.
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [
+        { name: "Space Grotesk", data: spaceGrotesk, weight: 500, style: "normal" },
+      ],
+    }
   );
 }

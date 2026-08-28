@@ -3,7 +3,7 @@ import { Container } from "./container";
 
 export function MetricsBar() {
   return (
-    <section className="border-y border-white/10 bg-white/[0.02] py-10 sm:py-12">
+    <section className="border-y border-line bg-surface py-10 sm:py-12">
       <Container>
         <dl className="grid grid-cols-3 gap-6 sm:gap-8">
           {metrics.map((metric) => (

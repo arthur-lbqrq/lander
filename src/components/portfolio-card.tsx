@@ -20,7 +20,7 @@ export function PortfolioCard({ project }: { project: Project }) {
   }
 
   return (
-    <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-colors hover:border-white/20">
+    <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-colors hover:border-paper/20">
       <div className="relative aspect-[16/10] w-full">
         <Image
           src={project.image}
@@ -40,7 +40,7 @@ export function PortfolioCard({ project }: { project: Project }) {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="after:absolute after:inset-0 group-hover:text-accent"
+              className="after:absolute after:inset-0"
             >
               {project.client}
             </a>

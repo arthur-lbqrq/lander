@@ -6,16 +6,18 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 py-12">
+    <footer className="border-t border-line py-12">
       <Container>
         <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
           <div className="max-w-xs">
             <a
               href="#"
-              className="flex items-center gap-2 font-display text-lg font-medium text-paper"
+              className="flex items-center gap-2 font-display text-lg font-medium tracking-[-0.03em] text-paper"
             >
               <BrandMark className="h-6 w-6 text-paper" />
-              lander.co
+              {/* .co stays blue per brand rule — logotype text is exempt
+                  from WCAG 1.4.3 contrast. */}
+              lander<span className="text-accent">.co</span>
             </a>
             <p className="mt-3 text-sm text-paper/60">
               Landing pages de alta conversão para pequenos negócios.
@@ -92,7 +94,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-paper/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-2 border-t border-line pt-6 text-xs text-paper/60 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} lander.co. Todos os direitos reservados.</p>
           <p className="font-mono">Construído com Next.js + Tailwind CSS.</p>
         </div>

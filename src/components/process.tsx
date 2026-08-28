@@ -13,7 +13,7 @@ export function Process() {
         />
         <ol className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {processSteps.map((step) => (
-            <li key={step.number} className="border-t border-white/10 pt-6">
+            <li key={step.number} className="border-t border-line pt-6">
               <span className="font-display text-3xl font-medium text-accent sm:text-4xl">
                 {step.number}
               </span>

@@ -18,7 +18,7 @@ export function SectionHeading({
       <Eyebrow className={align === "center" ? "justify-center" : ""}>
         {eyebrow}
       </Eyebrow>
-      <h2 className="mt-4 text-balance font-display text-3xl font-medium tracking-tight text-paper sm:text-4xl">
+      <h2 className="mt-4 text-balance font-display text-3xl leading-[1.1] font-medium tracking-[-0.03em] text-paper sm:text-4xl">
         {title}
       </h2>
       {description ? (

@@ -17,7 +17,7 @@ export function Testimonials() {
               {testimonials.map((testimonial) => (
                 <li
                   key={testimonial.author}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6"
+                  className="rounded-2xl border border-line bg-surface p-6"
                 >
                   <p className="text-paper/90">&ldquo;{testimonial.quote}&rdquo;</p>
                   <p className="mt-4 font-mono text-xs uppercase tracking-wider text-paper/50">

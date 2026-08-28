@@ -5,6 +5,8 @@
   --color-paper: #fafafa;
   --color-accent: #2d5cff;
   --color-muted: #68686c;
+  --color-surface: #131316;
+  --color-line: #23232a;
 
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;

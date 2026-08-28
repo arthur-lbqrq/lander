@@ -6,8 +6,8 @@ export function CtaSection() {
   return (
     <section className="py-20 sm:py-28">
       <Container>
-        <div className="rounded-3xl border border-white/10 bg-white/[0.03] px-8 py-16 text-center sm:px-16">
-          <h2 className="text-balance font-display text-3xl font-medium tracking-tight text-paper sm:text-4xl">
+        <div className="rounded-3xl border border-line bg-surface px-8 py-16 text-center sm:px-16">
+          <h2 className="text-balance font-display text-3xl font-medium tracking-[-0.03em] text-paper sm:text-4xl">
             Vamos tirar sua landing page do papel?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-paper/70">
@@ -18,7 +18,7 @@ export function CtaSection() {
               href={getWhatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-mono text-sm text-paper transition-opacity hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded-md border border-accent px-6 py-3 font-mono text-sm text-paper transition-colors hover:bg-accent/10"
             >
               Falar no WhatsApp
               <ArrowUpRightIcon className="h-4 w-4" />
