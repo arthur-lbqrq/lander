@@ -1,0 +1,45 @@
+import Image from "next/image";
+import type { Project } from "@/content/projects";
+import { BrandMark } from "./brand-mark";
+
+export function PortfolioCard({ project }: { project: Project }) {
+  if (project.status === "soon") {
+    return (
+      <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-dashed border-white/20">
+        <div className="flex aspect-[16/10] w-full items-center justify-center border-b border-dashed border-white/20">
+          <BrandMark className="h-7 w-7 text-paper/25" />
+        </div>
+        <div className="flex flex-1 flex-col items-center justify-center p-6 text-center">
+          <p className="font-mono text-xs uppercase tracking-wider text-paper/50">
+            Em breve
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-colors hover:border-white/20">
+      <div className="relative aspect-[16/10] w-full">
+        <Image
+          src={project.image}
+          alt={`Prévia visual da landing page — ${project.client}`}
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover"
+        />
+      </div>
+      <div className="flex flex-1 flex-col p-6">
+        <p className="font-mono text-xs uppercase tracking-wider text-paper/60">
+          {project.tag}
+        </p>
+        <h3 className="mt-2 font-display text-xl font-medium text-paper">
+          {project.client}
+        </h3>
+        <p className="mt-2 line-clamp-3 text-sm text-paper/70">
+          {project.description}
+        </p>
+      </div>
+    </div>
+  );
+}
