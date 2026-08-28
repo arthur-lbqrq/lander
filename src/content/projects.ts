@@ -1,6 +1,6 @@
 import type { StaticImageData } from "next/image";
-import projectPlaceholderOne from "./images/project-placeholder-01.svg";
-import projectPlaceholderTwo from "./images/project-placeholder-02.svg";
+import tinoScreenshot from "./images/tino.png";
+import concrepisosScreenshot from "./images/concrepisos.png";
 
 type LiveProject = {
   status: "live";
@@ -9,6 +9,7 @@ type LiveProject = {
   description: string;
   tag: string;
   image: StaticImageData;
+  url?: string;
 };
 
 type UpcomingProject = {
@@ -29,23 +30,22 @@ export const projects: Project[] = [
   {
     status: "live",
     id: "projeto-01",
-    // TODO: substituir pelo nome real do cliente.
-    client: "Nome do Cliente 01",
-    // TODO: substituir pela descrição real do projeto.
+    client: "Tino",
     description:
-      "Descrição breve do projeto: o que foi construído e qual resultado a landing page entrega.",
-    tag: "Landing Page",
-    // TODO: substituir pelo screenshot real do projeto.
-    image: projectPlaceholderOne,
+      "SaaS de gestão financeira para pequenos negócios: antecipa problemas de caixa com alertas inteligentes, antes que virem prejuízo.",
+    tag: "SaaS Financeiro",
+    image: tinoScreenshot,
+    url: "https://tino-gfin-beta.vercel.app/",
   },
   {
     status: "live",
     id: "projeto-02",
-    client: "Nome do Cliente 02",
+    client: "CONCREPISOS",
     description:
-      "Descrição breve do projeto: o que foi construído e qual resultado a landing page entrega.",
-    tag: "Landing Page",
-    image: projectPlaceholderTwo,
+      "Site institucional para empresa de pisos e acabamentos em Recife-PE, com portfólio de obras e captação direta via WhatsApp.",
+    tag: "Pisos & Acabamentos",
+    image: concrepisosScreenshot,
+    url: "https://concrepisos.vercel.app/",
   },
   { status: "soon", id: "projeto-03" },
   { status: "soon", id: "projeto-04" },
