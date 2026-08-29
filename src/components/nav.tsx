@@ -3,13 +3,18 @@
 import { useEffect, useState } from "react";
 import { BrandMark } from "./brand-mark";
 import { Container } from "./container";
-import { MenuIcon, CloseIcon } from "./icons";
+import { MenuIcon, CloseIcon, ArrowUpRightIcon, SwitchIcon } from "./icons";
 import { getWhatsappUrl } from "@/content/site";
+import { testimonials } from "@/content/testimonials";
 
 const navLinks = [
   { href: "#trabalhos", label: "Trabalhos" },
   { href: "#processo", label: "Processo" },
-  { href: "#depoimentos", label: "Depoimentos" },
+  // A seção de depoimentos fica oculta enquanto testimonials.ts está
+  // vazio (ver testimonials.tsx); sem isso o link levaria a lugar nenhum.
+  ...(testimonials.length > 0
+    ? [{ href: "#depoimentos", label: "Depoimentos" }]
+    : []),
 ];
 
 export function Nav() {
@@ -34,9 +39,15 @@ export function Nav() {
             onClick={() => setOpen(false)}
           >
             <BrandMark className="h-6 w-6 text-paper" />
-            {/* .co stays blue per brand rule even below AA at this size —
-                logotype text is exempt from WCAG 1.4.3. */}
-            lander<span className="text-accent">.co</span>
+            {/* Wrapped in one span so the parent's flex `gap-2` (icon-to-
+                wordmark spacing) doesn't also land between "lander" and
+                ".co" — a bare text node next to the span would otherwise
+                become its own flex item. .co stays blue per brand rule
+                even below AA at this size — logotype text is exempt from
+                WCAG 1.4.3. */}
+            <span>
+              lander<span className="text-accent">.co</span>
+            </span>
           </a>
 
           <nav aria-label="Principal" className="hidden items-center gap-8 md:flex">
@@ -53,15 +64,17 @@ export function Nav() {
               href={getWhatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-md border border-accent px-5 py-2.5 font-mono text-sm text-paper transition-colors hover:bg-accent/10"
+              className="group inline-flex items-center gap-2 rounded-md border border-accent px-5 py-2.5 font-mono text-sm text-paper transition hover:bg-accent/10 active:scale-[0.97]"
             >
+              <SwitchIcon className="h-2.5 w-5" />
               Orçamento
+              <ArrowUpRightIcon className="h-3.5 w-3.5" />
             </a>
           </nav>
 
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center text-paper md:hidden"
+            className="flex h-11 w-11 items-center justify-center text-paper md:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Fechar menu" : "Abrir menu"}
@@ -81,6 +94,7 @@ export function Nav() {
           id="mobile-menu"
           aria-label="Menu móvel"
           className="border-t border-line bg-ink md:hidden"
+          style={{ animation: "drawer-in 200ms cubic-bezier(0.16, 1, 0.3, 1) both" }}
         >
           <Container className="flex flex-col gap-1 py-4">
             {navLinks.map((link) => (
@@ -97,10 +111,12 @@ export function Nav() {
               href={getWhatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 rounded-md border border-accent px-5 py-3 text-center font-mono text-sm text-paper"
+              className="group mt-2 inline-flex items-center justify-center gap-2 rounded-md border border-accent px-5 py-3 font-mono text-sm text-paper transition active:scale-[0.97]"
               onClick={() => setOpen(false)}
             >
+              <SwitchIcon className="h-2.5 w-5" />
               Orçamento
+              <ArrowUpRightIcon className="h-3.5 w-3.5" />
             </a>
           </Container>
         </nav>

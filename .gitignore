@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# impeccable (machine/session-local state only; config.json itself is shared)
+.impeccable/config.local.json
+.impeccable/hook.cache.json

@@ -22,7 +22,19 @@ export const siteConfig = {
   instagramUrl: "https://instagram.com/lander.co",
 } as const;
 
+const WHATSAPP_PLACEHOLDER = "55SEUNUMEROAQUI";
+
 export function getWhatsappUrl(message: string = siteConfig.whatsappMessage) {
+  if (siteConfig.whatsappNumber === WHATSAPP_PLACEHOLDER) {
+    const warning =
+      `whatsappNumber em src/content/site.ts ainda é o placeholder "${WHATSAPP_PLACEHOLDER}" — ` +
+      "todo CTA do site aponta para um número que não existe. Troque pelo número real antes de publicar.";
+    if (process.env.NODE_ENV === "production") {
+      throw new Error(warning);
+    }
+    console.warn(`[lander.co] ${warning}`);
+  }
+
   const query = new URLSearchParams({ text: message });
   return `https://wa.me/${siteConfig.whatsappNumber}?${query.toString()}`;
 }

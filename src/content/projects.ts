@@ -2,7 +2,7 @@ import type { StaticImageData } from "next/image";
 import tinoScreenshot from "./images/tino.png";
 import concrepisosScreenshot from "./images/concrepisos.png";
 
-type LiveProject = {
+export type LiveProject = {
   status: "live";
   id: string;
   client: string;
@@ -22,9 +22,10 @@ export type Project = LiveProject | UpcomingProject;
 /**
  * Os dois primeiros projetos estão prontos para receber conteúdo real:
  * troque `client`, `description`, `tag` e `image` pelos dados do case.
- * Os demais itens (status "soon") aparecem como "Em breve" no grid —
- * basta trocar o status para "live" e preencher os campos quando o
- * próximo case estiver pronto.
+ * Os demais itens (status "soon") são contados num indicador único
+ * abaixo do grid ("+N em breve") em vez de aparecerem como cards
+ * individuais — basta trocar o status para "live" e preencher os campos
+ * quando o próximo case estiver pronto.
  */
 export const projects: Project[] = [
   {

@@ -18,6 +18,8 @@
 @layer base {
   html {
     color-scheme: dark;
+    scrollbar-color: var(--color-line) var(--color-ink);
+    scrollbar-width: thin;
   }
 
   body {
@@ -30,6 +32,31 @@
 
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-accent rounded-xs;
+  }
+
+  /* Themed scrollbar (WebKit/Blink) — the Hairline/Ink pairing already used
+     everywhere else, so scrolling itself reads as part of the instrument,
+     not a leftover browser default. Firefox gets the same pairing via
+     scrollbar-color above. */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-ink);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line);
+    border-radius: 9999px;
+    border: 2px solid var(--color-ink);
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-muted);
+    background-clip: padding-box;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -46,6 +73,117 @@
   }
   50% {
     opacity: 0;
+  }
+}
+
+/**
+ * Hero power-on: the one focal entrance sequence on the page (see hero.tsx).
+ * Pure CSS, no script dependency — content is already in the DOM and readable
+ * before this runs, it only animates the rise. Never reused as a generic
+ * "fade everything up" utility elsewhere.
+ */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Switch-flip confirmation: one pulse on the hero's primary switch actuator,
+ * timed to land as the power-on sequence finishes (see icons.tsx SwitchIcon
+ * `animated` prop). Not used on the nav/CTA-section switches — those stay
+ * static so this reads as a single authored moment, not a repeated tic.
+ */
+@keyframes switch-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.7;
+  }
+}
+
+/**
+ * Mobile nav drawer: a real open transition instead of an instant swap,
+ * explaining the state change (see nav.tsx). Entrance only — closing stays
+ * instant, matching the drawer's existing instant unmount.
+ */
+@keyframes drawer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Overdrive — Panel Power-Up: looping trace around the hero mockup's frame
+ * (see power-trace-frame.tsx). Draws in, holds, fades, then holds invisible
+ * for a pause before drawing again — the frame reads as its normal Hairline
+ * border between passes; this never becomes a permanent new border
+ * treatment. pathLength=1 on the traced rect keeps 0→1 the whole
+ * dash-offset range regardless of the mockup's actual responsive size.
+ * Timed against a 3s total cycle: ~1.4s active (draw/hold/fade), ~1.6s
+ * paused before the next pass.
+ */
+@keyframes power-trace {
+  0% {
+    stroke-dashoffset: 1;
+    opacity: 1;
+  }
+  26% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  37% {
+    opacity: 1;
+  }
+  47% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+/**
+ * Process rotary dial: one authored sweep through all 4 detents, triggered
+ * once when the dial scrolls into view (see process-dial.tsx). Scoped to
+ * this one signature moment, not a reusable easing token. Ends with a small
+ * overshoot-and-settle (96deg → 90deg) — the same calibrated-instrument
+ * physics as the Gauge needle, not a plain stop.
+ */
+@keyframes dial-sweep {
+  0% {
+    transform: rotate(-90deg);
+  }
+  20% {
+    transform: rotate(-90deg);
+  }
+  40% {
+    transform: rotate(-30deg);
+  }
+  60% {
+    transform: rotate(30deg);
+  }
+  88% {
+    transform: rotate(96deg);
+  }
+  100% {
+    transform: rotate(90deg);
   }
 }
 

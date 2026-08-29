@@ -1,3 +1,5 @@
+import { PowerTraceFrame } from "./power-trace-frame";
+
 /**
  * Elemento de assinatura visual do hero: um mockup de janela de navegador
  * com uma landing page abstrata dentro. Usa a "rota de descida" oficial do
@@ -9,7 +11,7 @@ export function BrowserMockup() {
   return (
     <div
       aria-hidden="true"
-      className="w-full overflow-hidden rounded-2xl border border-line bg-ink shadow-2xl shadow-black/40"
+      className="relative w-full overflow-hidden rounded-2xl border border-line bg-ink shadow-2xl shadow-black/40"
     >
       <div className="flex items-center gap-4 border-b border-line px-4 py-3 sm:px-5">
         <div className="flex gap-1.5">
@@ -67,6 +69,8 @@ export function BrowserMockup() {
           </svg>
         </div>
       </div>
+
+      <PowerTraceFrame />
     </div>
   );
 }

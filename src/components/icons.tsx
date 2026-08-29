@@ -22,6 +22,49 @@ export function ArrowUpRightIcon({ className }: IconProps) {
   );
 }
 
+export function ArrowRightIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M5 12h14" />
+      <path d="m13 6 6 6-6 6" />
+    </svg>
+  );
+}
+
+type SwitchIconProps = IconProps & {
+  /** Plays the one-time power-on pulse (hero's primary switch only). */
+  animated?: boolean;
+};
+
+export function SwitchIcon({ className, animated }: SwitchIconProps) {
+  return (
+    <svg viewBox="0 0 24 12" className={className} aria-hidden="true" focusable="false">
+      <rect
+        x="0.75"
+        y="0.75"
+        width="22.5"
+        height="10.5"
+        rx="5.25"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <circle
+        cx="17"
+        cy="6"
+        r="3.25"
+        fill="#2D5CFF"
+        className="origin-[center] transition-transform duration-150 group-hover:scale-110 group-active:-translate-x-1 group-active:scale-90"
+        style={
+          animated
+            ? { animation: "switch-pulse 500ms cubic-bezier(0.16, 1, 0.3, 1) 900ms both" }
+            : undefined
+        }
+      />
+    </svg>
+  );
+}
+
 export function MessageIcon({ className }: IconProps) {
   return (
     <svg {...base} className={className}>

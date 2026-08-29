@@ -1,4 +1,5 @@
 import { getWhatsappUrl, siteConfig } from "@/content/site";
+import { testimonials } from "@/content/testimonials";
 import { Container } from "./container";
 import { BrandMark } from "./brand-mark";
 
@@ -15,9 +16,13 @@ export function Footer() {
               className="flex items-center gap-2 font-display text-lg font-medium tracking-[-0.03em] text-paper"
             >
               <BrandMark className="h-6 w-6 text-paper" />
-              {/* .co stays blue per brand rule — logotype text is exempt
-                  from WCAG 1.4.3 contrast. */}
-              lander<span className="text-accent">.co</span>
+              {/* Wrapped in one span so the parent's flex `gap-2` (icon-to-
+                  wordmark spacing) doesn't also land between "lander" and
+                  ".co". .co stays blue per brand rule — logotype text is
+                  exempt from WCAG 1.4.3 contrast. */}
+              <span>
+                lander<span className="text-accent">.co</span>
+              </span>
             </a>
             <p className="mt-3 text-sm text-paper/60">
               Landing pages de alta conversão para pequenos negócios.
@@ -33,7 +38,7 @@ export function Footer() {
                 <li>
                   <a
                     href="#trabalhos"
-                    className="text-sm text-paper/70 hover:text-paper"
+                    className="font-mono text-sm text-paper/70 hover:text-paper"
                   >
                     Trabalhos
                   </a>
@@ -41,19 +46,21 @@ export function Footer() {
                 <li>
                   <a
                     href="#processo"
-                    className="text-sm text-paper/70 hover:text-paper"
+                    className="font-mono text-sm text-paper/70 hover:text-paper"
                   >
                     Processo
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="#depoimentos"
-                    className="text-sm text-paper/70 hover:text-paper"
-                  >
-                    Depoimentos
-                  </a>
-                </li>
+                {testimonials.length > 0 ? (
+                  <li>
+                    <a
+                      href="#depoimentos"
+                      className="font-mono text-sm text-paper/70 hover:text-paper"
+                    >
+                      Depoimentos
+                    </a>
+                  </li>
+                ) : null}
               </ul>
             </div>
             <div>
@@ -66,7 +73,7 @@ export function Footer() {
                     href={getWhatsappUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-paper/70 hover:text-paper"
+                    className="font-mono text-sm text-paper/70 hover:text-paper"
                   >
                     WhatsApp
                   </a>
@@ -76,7 +83,7 @@ export function Footer() {
                     href={siteConfig.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-paper/70 hover:text-paper"
+                    className="font-mono text-sm text-paper/70 hover:text-paper"
                   >
                     Instagram
                   </a>
@@ -84,7 +91,7 @@ export function Footer() {
                 <li>
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="text-sm text-paper/70 hover:text-paper"
+                    className="font-mono text-sm text-paper/70 hover:text-paper"
                   >
                     E-mail
                   </a>

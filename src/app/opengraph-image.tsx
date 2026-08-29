@@ -5,6 +5,7 @@ export const contentType = "image/png";
 
 async function loadSpaceGrotesk() {
   const css = await fetch(
+    // impeccable-disable-next-line overused-font -- documented brand display typeface, see DESIGN.md
     "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&text=lander.co"
   ).then((res) => res.text());
   const match = css.match(/src: url\((.+?)\) format\('(?:opentype|truetype)'\)/);

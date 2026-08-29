@@ -1,37 +1,25 @@
 import Image from "next/image";
-import type { Project } from "@/content/projects";
-import { BrandMark } from "./brand-mark";
+import type { LiveProject } from "@/content/projects";
 import { ArrowUpRightIcon } from "./icons";
 
-export function PortfolioCard({ project }: { project: Project }) {
-  if (project.status === "soon") {
-    return (
-      <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-dashed border-white/20">
-        <div className="flex aspect-[16/10] w-full items-center justify-center border-b border-dashed border-white/20">
-          <BrandMark className="h-7 w-7 text-paper/25" />
-        </div>
-        <div className="flex flex-1 flex-col items-center justify-center p-6 text-center">
-          <p className="font-mono text-xs uppercase tracking-wider text-paper/50">
-            Em breve
-          </p>
-        </div>
-      </div>
-    );
-  }
-
+export function PortfolioCard({ project }: { project: LiveProject }) {
   return (
     <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-colors hover:border-paper/20">
-      <div className="relative aspect-[16/10] w-full">
+      <div className="relative aspect-[16/10] w-full overflow-hidden">
         <Image
           src={project.image}
           alt={`Prévia visual da landing page — ${project.client}`}
           fill
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover object-top"
+          sizes="(min-width: 640px) 50vw, 100vw"
+          className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]"
         />
       </div>
       <div className="flex flex-1 flex-col p-6">
-        <p className="font-mono text-xs uppercase tracking-wider text-paper/60">
+        <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-paper/60">
+          <span
+            className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent transition-transform duration-300 group-hover:scale-125"
+            aria-hidden="true"
+          />
           {project.tag}
         </p>
         <h3 className="mt-2 flex items-center gap-1.5 font-display text-xl font-medium text-paper">
@@ -51,7 +39,7 @@ export function PortfolioCard({ project }: { project: Project }) {
             <ArrowUpRightIcon className="h-4 w-4 text-paper/40 transition-colors group-hover:text-accent" />
           ) : null}
         </h3>
-        <p className="mt-2 line-clamp-3 text-sm text-paper/70">
+        <p className="mt-2 line-clamp-3 text-base text-paper/70">
           {project.description}
         </p>
       </div>

@@ -1,0 +1,20 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font-size",
+        "value": "7px",
+        "createdAt": "2026-08-29T04:05:17.468Z",
+        "reason": "instrument-panel dial: 7px is a micro-numeral drawn inside a small SVG gauge face (process-dial.tsx), not page body/label type-ramp text — scale is fixed by the dial's own viewBox, not the type system"
+      },
+      {
+        "rule": "bounce-easing",
+        "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "createdAt": "2026-08-29T04:39:13.623Z",
+        "reason": "instrument-panel world: this is the standard single-overshoot easeOutBack curve on the Gauge needle (gauge.tsx), simulating real mechanical spring/inertia in an analog instrument dial, not generic bouncy UI — domain-appropriate motion per the established Painel de Controle Industrial direction, not an elastic/multi-bounce effect"
+      }
+    ]
+  }
+}
