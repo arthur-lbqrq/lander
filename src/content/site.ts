@@ -11,8 +11,7 @@ export const siteConfig = {
   url: "https://lander.co",
   locale: "pt_BR",
 
-  // TODO: trocar pelo número real, apenas dígitos (código do país + DDD + número).
-  whatsappNumber: "55SEUNUMEROAQUI",
+  whatsappNumber: "5581993552338",
   whatsappMessage: "Olá! Vim pelo site e quero um orçamento para minha landing page.",
 
   // TODO: trocar pelo e-mail de contato real.
@@ -22,7 +21,11 @@ export const siteConfig = {
   instagramUrl: "https://instagram.com/lander.co",
 } as const;
 
-const WHATSAPP_PLACEHOLDER = "55SEUNUMEROAQUI";
+// Typed as `string`, not narrowed to its literal — `siteConfig` is `as const`,
+// so a bare literal here would make this comparison a compile-time-provable
+// "always false" (TS2367) the moment whatsappNumber is a real, different
+// number, which is exactly the state this guard needs to detect correctly.
+const WHATSAPP_PLACEHOLDER: string = "55SEUNUMEROAQUI";
 
 export function getWhatsappUrl(message: string = siteConfig.whatsappMessage) {
   if (siteConfig.whatsappNumber === WHATSAPP_PLACEHOLDER) {
