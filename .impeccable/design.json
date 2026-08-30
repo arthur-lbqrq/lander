@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-29T05:50:00Z",
+  "generatedAt": "2026-08-30T14:00:00Z",
   "title": "Design System: lander.co",
   "extensions": {
     "colorMeta": {
@@ -34,7 +34,8 @@
       { "name": "press-scale", "value": "transform: scale(0.97) on :active, part of the bare `transition` utility (~150ms)", "purpose": "Primary switch buttons (hero/nav/CTA-section WhatsApp+Orçamento) compress slightly on press for tactile confirmation before navigation." },
       { "name": "card-hover-zoom", "value": "transform: scale(1.04) on the card image, scale(1.25) on the lit dot, 300ms, clipped by the card's own rounded corners", "purpose": "Portfolio card hover — reinforces the card as a selectable channel, reusing the Switch Glyph's dot-scale idiom instead of a new hover device." },
       { "name": "instrument-tilt", "value": "transform: rotateX()/rotateY(), capped +/-7deg, rAF-throttled pointermove, 100ms linear while tracking / 600ms cubic-bezier(0.16,1,0.3,1) on release, perspective(900px) on the stage (hero-mockup-stage.tsx)", "purpose": "Overdrive hero moment: the mockup tilts as one rigid plane toward the pointer, like a physical panel viewed off-axis. Desktop/fine-pointer only; the pointermove listener is never attached under prefers-reduced-motion or on coarse/no-hover pointers." },
-      { "name": "power-trace", "value": "@keyframes power-trace, 3s total cycle (~1.4s active draw/hold/fade, ~1.6s paused) cubic-bezier(0.65,0,0.35,1), 950ms initial delay, infinite iteration, SVG stroke-dashoffset 1->0 then opacity 1->0 then hold (power-trace-frame.tsx)", "purpose": "Overdrive hero moment: a Signal Blue line traces the mockup's frame, holds, fades, pauses, then draws again — the frame reads as its normal Hairline border between passes. First pass timed to start as the hero-rise entrance settles; the loop is paused via IntersectionObserver/visibilitychange whenever the mockup isn't visible." }
+      { "name": "power-trace", "value": "@keyframes power-trace, 3s total cycle (~1.4s active draw/hold/fade, ~1.6s paused) cubic-bezier(0.65,0,0.35,1), 950ms initial delay, infinite iteration, SVG stroke-dashoffset 1->0 then opacity 1->0 then hold (power-trace-frame.tsx)", "purpose": "Overdrive hero moment: a Signal Blue line traces the mockup's frame, holds, fades, pauses, then draws again — the frame reads as its normal Hairline border between passes. First pass timed to start as the hero-rise entrance settles; the loop is paused via IntersectionObserver/visibilitychange whenever the mockup isn't visible." },
+      { "name": "dark-veil", "value": "WebGL shader canvas (ogl), requestAnimationFrame loop, component defaults (native multi-hue CPPN pattern, untinted, resolutionScale left at 1 — a lower value shrinks the canvas's CSS box instead of just its framebuffer, an ogl Renderer.setSize quirk), opacity-[0.35] — dark-veil-background.tsx wrapping vendored DarkVeil.jsx/.css (react-bits)", "purpose": "The system's one deliberately colorful, expressive layer (explicit exception to the single-accent rule), fixed behind the entire page (negative z-index, painted before normal content), not just the hero. Unmounted whenever the tab is hidden (visibilitychange) and skipped entirely under prefers-reduced-motion. Replaces the earlier hero-only Flow Field, which is unused but left in the repo." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" },
@@ -141,7 +142,8 @@
       "Do keep motion to one focal entrance (the hero power-on) plus a small set of named, purposeful supporting moments (sibling-stagger reveal for genuine lists, press feedback, hover feedback, drawer continuity) — never a blanket per-section scroll-fade.",
       "Do default every scroll-triggered reveal to fully visible in the server-rendered markup, applying the hidden pre-state only after mount via JS, so a blocked or failed script never hides content.",
       "Do style every custom error/empty state (e.g. not-found.tsx) with the same Nav/Footer/Container shell as the rest of the site, leading with the plain-language problem and a real recovery action — never leave a route on an unstyled framework default.",
-      "Do keep the Overdrive tilt/power-trace pair confined to the hero mockup — the one place on the page that has earned an extraordinary moment. Every other card/section stays at the restrained Motion vocabulary above."
+      "Do keep the Overdrive tilt/power-trace pair confined to the hero mockup — the one place on the page that has earned an extraordinary moment. Every other card/section stays at the restrained Motion vocabulary above.",
+      "Do lock any third-party/vendored decorative background or effect to this system's exact Signal Blue (hue 227, no range/jitter) rather than that vendor's own default palette or hue spread — one accent color across the whole page, including borrowed components."
     ],
     "donts": [
       "Don't introduce a filled/solid Signal Blue button — every button in this system is outline-only.",

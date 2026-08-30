@@ -30,7 +30,7 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-ink/80 backdrop-blur-sm">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/50 backdrop-blur-xl">
       <Container>
         <div className="flex h-16 items-center justify-between sm:h-20">
           <a
@@ -93,7 +93,7 @@ export function Nav() {
         <nav
           id="mobile-menu"
           aria-label="Menu móvel"
-          className="border-t border-line bg-ink md:hidden"
+          className="border-t border-white/10 bg-ink/70 backdrop-blur-xl md:hidden"
           style={{ animation: "drawer-in 200ms cubic-bezier(0.16, 1, 0.3, 1) both" }}
         >
           <Container className="flex flex-col gap-1 py-4">

@@ -4,7 +4,7 @@ import { ArrowUpRightIcon } from "./icons";
 
 export function PortfolioCard({ project }: { project: LiveProject }) {
   return (
-    <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-colors hover:border-paper/20">
+    <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl transition-colors hover:border-white/20">
       <div className="relative aspect-[16/10] w-full overflow-hidden">
         <Image
           src={project.image}

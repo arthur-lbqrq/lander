@@ -24,9 +24,6 @@ export function Footer() {
                 lander<span className="text-accent">.co</span>
               </span>
             </a>
-            <p className="mt-3 text-sm text-paper/60">
-              Landing pages de alta conversão para pequenos negócios.
-            </p>
           </div>
 
           <div className="grid grid-cols-2 gap-10 sm:flex sm:gap-16">
@@ -101,9 +98,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-line pt-6 text-xs text-paper/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 border-t border-line pt-6 text-xs text-paper/60">
           <p>© {year} lander.co. Todos os direitos reservados.</p>
-          <p className="font-mono">Construído com Next.js + Tailwind CSS.</p>
         </div>
       </Container>
     </footer>

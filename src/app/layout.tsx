@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import { siteConfig } from "@/content/site";
+import { DarkVeilBackground } from "@/components/dark-veil-background";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           style={{ display: "contents" }}
           dangerouslySetInnerHTML={{ __html: `<!--${DIRECTION_CONTRACT}-->` }}
         />
+        <DarkVeilBackground />
         {children}
       </body>
     </html>

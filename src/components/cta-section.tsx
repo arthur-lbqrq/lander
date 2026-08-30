@@ -6,12 +6,12 @@ export function CtaSection() {
   return (
     <section className="py-20 sm:py-28">
       <Container>
-        <div className="rounded-3xl border border-line bg-surface px-8 py-16 text-center sm:px-16">
+        <div className="rounded-3xl border border-white/10 bg-white/[0.04] px-8 py-16 text-center backdrop-blur-xl sm:px-16">
           <h2 className="text-balance font-display text-3xl leading-[1.1] font-medium tracking-[-0.03em] text-paper sm:text-4xl">
             Vamos tirar sua landing page do papel?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-paper/70 sm:text-lg">
-            Fale agora pelo WhatsApp e receba um orçamento sem compromisso.
+            Orçamento sem compromisso, direto no WhatsApp.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a

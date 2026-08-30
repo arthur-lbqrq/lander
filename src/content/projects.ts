@@ -34,8 +34,7 @@ export const projects: Project[] = [
     status: "live",
     id: "projeto-01",
     client: "Tino",
-    description:
-      "SaaS de gestão financeira para pequenos negócios: antecipa problemas de caixa com alertas inteligentes, antes que virem prejuízo.",
+    description: "SaaS financeiro que antecipa problemas de caixa.",
     tag: "SaaS Financeiro",
     image: tinoScreenshot,
     url: "https://tino-gfin-beta.vercel.app/",
@@ -44,8 +43,7 @@ export const projects: Project[] = [
     status: "live",
     id: "projeto-02",
     client: "CONCREPISOS",
-    description:
-      "Site institucional para empresa de pisos e acabamentos em Recife-PE, com portfólio de obras e captação direta via WhatsApp.",
+    description: "Site institucional de pisos e acabamentos, com captação via WhatsApp.",
     tag: "Pisos & Acabamentos",
     image: concrepisosScreenshot,
     url: "https://concrepisos.vercel.app/",
@@ -54,8 +52,7 @@ export const projects: Project[] = [
     status: "live",
     id: "projeto-03",
     client: "JL Sports",
-    description:
-      "Landing page para escola de futebol em Recife-PE, com catálogo de treinos por categoria, horários da semana e matrícula direta.",
+    description: "Landing page de escola de futebol, com matrícula direta.",
     tag: "Escola de Futebol",
     image: jlsportsScreenshot,
     url: "https://jlsports.vercel.app/",
@@ -64,8 +61,7 @@ export const projects: Project[] = [
     status: "live",
     id: "projeto-04",
     client: "Xodó Kids",
-    description:
-      "Landing page para salão de beleza infantil em Camaragibe-PE, com agendamento direto pelo WhatsApp e certificado de primeiro corte.",
+    description: "Landing page de salão infantil, com agendamento pelo WhatsApp.",
     tag: "Salão Infantil",
     image: xodokidsScreenshot,
     url: "https://xodokids.vercel.app/",

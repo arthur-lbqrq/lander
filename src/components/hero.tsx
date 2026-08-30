@@ -20,8 +20,8 @@ function riseStyle(delayMs: number): CSSProperties {
 
 export function Hero() {
   return (
-    <section className="pt-28 pb-20 sm:pt-36 sm:pb-28">
-      <Container>
+    <section className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
+      <Container className="relative z-10">
         <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-12">
           <div>
             <div style={riseStyle(0)}>
@@ -39,9 +39,8 @@ export function Hero() {
               style={riseStyle(160)}
               className="mt-6 max-w-lg text-lg text-paper/70"
             >
-              Estúdio freelance especializado em landing pages de alta
-              conversão para pequenos negócios — do briefing à entrega, com
-              precisão técnica em cada detalhe.
+              Estúdio freelance para pequenos negócios — do briefing ao ar,
+              em poucos dias.
             </p>
             <div style={riseStyle(240)} className="mt-10 flex flex-wrap items-center gap-6">
               <a

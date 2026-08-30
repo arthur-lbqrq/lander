@@ -10,14 +10,10 @@ export function Process() {
   return (
     <section id="processo" className="scroll-mt-20 py-20 sm:py-28">
       <Container>
-        <SectionHeading
-          eyebrow="Processo"
-          title="Como funciona"
-          description="Um processo enxuto, do briefing à entrega — sem enrolação."
-        />
-        <div className="mt-12 rounded-2xl border border-line bg-surface p-8 sm:p-12">
+        <SectionHeading eyebrow="Processo" title="Como funciona" />
+        <div className="mt-12 rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl sm:p-12">
           <ProcessDial labels={processSteps.map((step) => step.title)} />
-          <ol className="mt-10 grid grid-cols-1 gap-8 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <ol className="mt-10 grid grid-cols-1 gap-8 border-t border-white/10 pt-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {processSteps.map((step, index) => (
               <li key={step.number}>
                 <Reveal delay={index * STAGGER_MS}>
