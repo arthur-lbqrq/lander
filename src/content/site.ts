@@ -14,11 +14,10 @@ export const siteConfig = {
   whatsappNumber: "5581993552338",
   whatsappMessage: "Olá! Vim pelo site e quero um orçamento para minha landing page.",
 
-  // TODO: trocar pelo e-mail de contato real.
-  email: "ola@lander.co",
+  email: "uselanderco@gmail.com",
 
-  instagramHandle: "@lander.co",
-  instagramUrl: "https://instagram.com/lander.co",
+  instagramHandle: "@uselander.co",
+  instagramUrl: "https://instagram.com/uselander.co",
 } as const;
 
 // Typed as `string`, not narrowed to its literal — `siteConfig` is `as const`,
