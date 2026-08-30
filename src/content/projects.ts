@@ -1,6 +1,8 @@
 import type { StaticImageData } from "next/image";
 import tinoScreenshot from "./images/tino.png";
 import concrepisosScreenshot from "./images/concrepisos.png";
+import jlsportsScreenshot from "./images/jlsports.png";
+import xodokidsScreenshot from "./images/xodokids.png";
 
 export type LiveProject = {
   status: "live";
@@ -48,8 +50,26 @@ export const projects: Project[] = [
     image: concrepisosScreenshot,
     url: "https://concrepisos.vercel.app/",
   },
-  { status: "soon", id: "projeto-03" },
-  { status: "soon", id: "projeto-04" },
+  {
+    status: "live",
+    id: "projeto-03",
+    client: "JL Sports",
+    description:
+      "Landing page para escola de futebol em Recife-PE, com catálogo de treinos por categoria, horários da semana e matrícula direta.",
+    tag: "Escola de Futebol",
+    image: jlsportsScreenshot,
+    url: "https://jlsports.vercel.app/",
+  },
+  {
+    status: "live",
+    id: "projeto-04",
+    client: "Xodó Kids",
+    description:
+      "Landing page para salão de beleza infantil em Camaragibe-PE, com agendamento direto pelo WhatsApp e certificado de primeiro corte.",
+    tag: "Salão Infantil",
+    image: xodokidsScreenshot,
+    url: "https://xodokids.vercel.app/",
+  },
   { status: "soon", id: "projeto-05" },
   { status: "soon", id: "projeto-06" },
 ];
