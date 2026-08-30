@@ -17,22 +17,21 @@ import DarkVeil from "./DarkVeil";
  * (stopping its uncapped requestAnimationFrame loop) while the tab is
  * hidden.
  *
- * Color: the shader's own generative pattern (a CPPN neural net) spans many
- * hues on its own. Locked to this project's exact Signal Blue instead: the
- * canvas is desaturated to pure luminance (`grayscale`) and recolored with
- * an isolated `mix-blend-mode: color` overlay painted in `--color-accent` —
- * the exact brand blue, hue-for-hue, with the shader supplying only
- * luminance and motion. `isolate` on the wrapper scopes that blend to just
- * this layer's own canvas, not the page content further behind it.
+ * Color/motion: a specific preset the user dialed in and asked to apply
+ * verbatim (`hueShift={20}`, `speed={1}`, `resolutionScale={1.25}`, the rest
+ * off) — the shader's own hue, not locked to a single accent this time.
  *
- * No `resolutionScale` override: ogl's `Renderer.setSize()` writes the
- * canvas's CSS width/height as inline pixel styles derived from that same
- * value (see node_modules/ogl/src/core/Renderer.js), which overrides
- * DarkVeil.css's `width:100%;height:100%` — any value below 1 visibly
- * shrinks the canvas to a smaller box anchored at the container's
- * top-left instead of filling it. Left at the component's default of 1;
- * device-pixel-ratio capping inside DarkVeil.jsx already keeps the actual
- * framebuffer cost sane.
+ * `resolutionScale > 1` (supersampling for a crisper render) hits a real
+ * ogl bug: `Renderer.setSize()` writes the canvas's CSS width/height as
+ * inline pixel styles derived from that same scaled value (see
+ * node_modules/ogl/src/core/Renderer.js), which would overflow the
+ * fixed viewport-filling container instead of just rendering at a higher
+ * internal resolution. Fixed by forcing the canvas's CSS box back to
+ * 100%/100% with an `!important` utility scoped to this instance
+ * (`[&_canvas]:w-full! [&_canvas]:h-full!`) — this beats the inline style
+ * without touching the vendored DarkVeil.css, so the canvas.width/height
+ * attributes (the actual framebuffer, still scaled by resolutionScale *
+ * devicePixelRatio) stay decoupled from its on-screen size.
  */
 export function DarkVeilBackground() {
   const [mounted, setMounted] = useState(false);
@@ -47,14 +46,20 @@ export function DarkVeilBackground() {
   }, []);
 
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 isolate opacity-[0.22]">
+    <div
+      aria-hidden
+      className="pointer-events-none fixed inset-0 -z-10 opacity-[0.3] [&_canvas]:w-full! [&_canvas]:h-full!"
+    >
       {mounted ? (
-        <>
-          <div className="absolute inset-0 grayscale contrast-125 brightness-90">
-            <DarkVeil />
-          </div>
-          <div className="absolute inset-0 mix-blend-color bg-accent" />
-        </>
+        <DarkVeil
+          hueShift={20}
+          noiseIntensity={0}
+          scanlineIntensity={0}
+          speed={1}
+          scanlineFrequency={0}
+          warpAmount={0}
+          resolutionScale={1.25}
+        />
       ) : null}
     </div>
   );

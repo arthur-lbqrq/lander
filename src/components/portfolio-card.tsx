@@ -1,10 +1,9 @@
 import Image from "next/image";
 import type { LiveProject } from "@/content/projects";
-import { ArrowUpRightIcon } from "./icons";
 
 export function PortfolioCard({ project }: { project: LiveProject }) {
   return (
-    <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl transition-colors hover:border-white/20">
+    <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/15 bg-white/[0.03] backdrop-blur-xl backdrop-brightness-125 transition-colors hover:border-white/25">
       <div className="relative aspect-[16/10] w-full overflow-hidden">
         <Image
           src={project.image}
@@ -14,7 +13,7 @@ export function PortfolioCard({ project }: { project: LiveProject }) {
           className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.04]"
         />
       </div>
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex flex-1 flex-col p-7">
         <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-paper/60">
           <span
             className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent transition-transform duration-300 group-hover:scale-125"
@@ -22,7 +21,7 @@ export function PortfolioCard({ project }: { project: LiveProject }) {
           />
           {project.tag}
         </p>
-        <h3 className="mt-2 flex items-center gap-1.5 font-display text-xl font-medium text-paper">
+        <h3 className="mt-3 font-display text-xl font-medium text-paper">
           {project.url ? (
             <a
               href={project.url}
@@ -35,11 +34,8 @@ export function PortfolioCard({ project }: { project: LiveProject }) {
           ) : (
             project.client
           )}
-          {project.url ? (
-            <ArrowUpRightIcon className="h-4 w-4 text-paper/40 transition-colors group-hover:text-accent" />
-          ) : null}
         </h3>
-        <p className="mt-2 line-clamp-3 text-base text-paper/70">
+        <p className="mt-3 line-clamp-3 text-base text-paper/70">
           {project.description}
         </p>
       </div>

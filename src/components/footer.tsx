@@ -7,9 +7,9 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-line py-12">
+    <footer className="border-t border-line py-16">
       <Container>
-        <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
+        <div className="flex flex-col gap-12 sm:flex-row sm:justify-between">
           <div className="max-w-xs">
             <a
               href="#"
@@ -26,12 +26,12 @@ export function Footer() {
             </a>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 sm:flex sm:gap-16">
+          <div className="grid grid-cols-2 gap-12 sm:flex sm:gap-20">
             <div>
               <p className="font-mono text-xs uppercase tracking-wider text-paper/60">
                 Navegação
               </p>
-              <ul className="mt-4 space-y-2">
+              <ul className="mt-5 space-y-3">
                 <li>
                   <a
                     href="#trabalhos"
@@ -64,7 +64,7 @@ export function Footer() {
               <p className="font-mono text-xs uppercase tracking-wider text-paper/60">
                 Contato
               </p>
-              <ul className="mt-4 space-y-2">
+              <ul className="mt-5 space-y-3">
                 <li>
                   <a
                     href={getWhatsappUrl()}
@@ -98,7 +98,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-line pt-6 text-xs text-paper/60">
+        <div className="mt-14 border-t border-line pt-8 text-xs text-paper/60">
           <p>© {year} lander.co. Todos os direitos reservados.</p>
         </div>
       </Container>

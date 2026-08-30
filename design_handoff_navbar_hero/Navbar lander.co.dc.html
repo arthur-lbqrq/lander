@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #0A0A0A; }
+  * { box-sizing: border-box; }
+  a { color: #FAFAFA; text-decoration: none; }
+  a:hover { color: #2D5CFF; }
+  @keyframes beam-drift { 0% { transform: translateX(-4%) scaleY(1); } 50% { transform: translateX(4%) scaleY(1.06); } 100% { transform: translateX(-4%) scaleY(1); } }
+</style>
+</helmet>
+
+<div style="position: relative; width: 100%; min-height: 720px; background: #0A0A0A; overflow: hidden; font-family: 'Inter', sans-serif;">
+
+  <!-- feixes de luz azul -->
+  <div style="position: absolute; inset: 0; overflow: hidden; pointer-events: none;">
+    <div style="position: absolute; top: -20%; left: 50%; width: 560px; height: 900px; margin-left: -280px; background: linear-gradient(to bottom, rgba(45,92,255,.55), rgba(45,92,255,0) 72%); filter: blur(80px); transform-origin: top center; rotate: -18deg; animation: beam-drift 14s ease-in-out infinite;"></div>
+    <div style="position: absolute; top: -25%; left: 50%; width: 420px; height: 880px; margin-left: -60px; background: linear-gradient(to bottom, rgba(45,92,255,.42), rgba(45,92,255,0) 70%); filter: blur(96px); transform-origin: top center; rotate: 20deg; animation: beam-drift 18s ease-in-out infinite reverse;"></div>
+    <div style="position: absolute; top: -180px; left: 50%; width: 900px; height: 520px; margin-left: -450px; background: radial-gradient(ellipse at center, rgba(45,92,255,.30), transparent 65%); filter: blur(60px);"></div>
+    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 90% 60% at 50% 0%, transparent 20%, rgba(10,10,10,.72) 78%);"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <div style="position: relative; padding: 28px 32px; display: flex; justify-content: center;">
+    <nav style="width: 100%; max-width: 880px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 12px 14px 12px 22px; border-radius: 999px; border: 1px solid rgba(250,250,250,.10); background: rgba(16,16,18,.55); backdrop-filter: blur(18px) saturate(1.2); box-shadow: 0 1px 0 rgba(250,250,250,.06) inset, 0 20px 50px rgba(0,0,0,.55);">
+
+      <a href="#" style="display: flex; align-items: center; gap: 12px;">
+        <svg viewBox="-3 -3 66 66" width="26" height="26" style="color: #FAFAFA; flex: none;" aria-label="Símbolo lander.co">
+          <rect x="0" y="0" width="60" height="60" rx="14" fill="none" stroke="currentColor" stroke-width="6"></rect>
+          <rect x="0" y="0" width="60" height="16" rx="14" fill="currentColor"></rect>
+          <path d="M30 26 L30 48 M30 48 L20 38 M30 48 L40 38" stroke="#2D5CFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+        </svg>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 19px; letter-spacing: -.02em; color: #FAFAFA;">lander<span style="color: #2D5CFF;">.co</span></span>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <a href="#servicos" style="padding: 9px 14px; border-radius: 999px; font-size: 15px; font-weight: 500; color: #A8A8A8; transition: color .18s ease, background .18s ease;" style-hover="color: #FAFAFA; background: rgba(250,250,250,.06);">Serviços</a>
+        <a href="#trabalhos" style="padding: 9px 14px; border-radius: 999px; font-size: 15px; font-weight: 500; color: #A8A8A8; transition: color .18s ease, background .18s ease;" style-hover="color: #FAFAFA; background: rgba(250,250,250,.06);">Trabalhos</a>
+        <a href="#processo" style="padding: 9px 14px; border-radius: 999px; font-size: 15px; font-weight: 500; color: #A8A8A8; transition: color .18s ease, background .18s ease;" style-hover="color: #FAFAFA; background: rgba(250,250,250,.06);">Processo</a>
+        <a href="#orcamento" style="margin-left: 8px; padding: 11px 22px; border-radius: 999px; background: #FAFAFA; color: #0A0A0A; font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 15px; letter-spacing: -.01em; transition: background .18s ease, color .18s ease, transform .18s ease;" style-hover="background: #2D5CFF; color: #FAFAFA; transform: translateY(-1px);">Orçamento</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <div style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 96px 32px 140px;">
+    <div style="display: inline-flex; align-items: center; gap: 10px; padding: 5px 14px 5px 6px; border-radius: 999px; border: 1px solid rgba(250,250,250,.12); background: rgba(16,16,18,.6); backdrop-filter: blur(10px); margin-bottom: 40px;">
+      <span style="padding: 4px 11px; border-radius: 999px; background: #2D5CFF; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: .12em; color: #FAFAFA;">NOVO</span>
+      <span style="font-size: 14px; color: #A8A8A8;">Agenda aberta para setembro</span>
+    </div>
+
+    <h1 style="margin: 0; max-width: 860px; font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 76px; line-height: 1.02; letter-spacing: -.04em; color: #FAFAFA; text-wrap: pretty;">Landing pages que convertem em <span style="color: #2D5CFF;">dias</span>, não semanas</h1>
+
+    <p style="margin: 32px 0 0; max-width: 560px; font-size: 19px; line-height: 1.6; color: #8A8A8A; text-wrap: pretty;">Copy, design e performance numa página só — feita para uma única ação.</p>
+
+    <div style="display: flex; align-items: center; gap: 14px; margin-top: 48px; flex-wrap: wrap; justify-content: center;">
+      <a href="#orcamento" style="padding: 15px 30px; border-radius: 12px; background: #FAFAFA; color: #0A0A0A; font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 17px; letter-spacing: -.01em; transition: background .18s ease, color .18s ease;" style-hover="background: #2D5CFF; color: #FAFAFA;">Pedir orçamento</a>
+      <a href="#trabalhos" style="padding: 15px 30px; border-radius: 12px; border: 1px solid rgba(250,250,250,.14); color: #A8A8A8; font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 17px; letter-spacing: -.01em; transition: color .18s ease, border-color .18s ease;" style-hover="color: #FAFAFA; border-color: rgba(250,250,250,.32);">Ver trabalhos</a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

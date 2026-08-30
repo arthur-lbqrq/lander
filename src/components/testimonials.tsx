@@ -13,19 +13,19 @@ export function Testimonials() {
   if (testimonials.length === 0) return null;
 
   return (
-    <section id="depoimentos" className="scroll-mt-20 py-20 sm:py-28">
+    <section id="depoimentos" className="scroll-mt-20 py-24 sm:py-32">
       <Container>
         <SectionHeading
           eyebrow="Depoimentos"
           title="O que dizem os clientes"
           align="center"
         />
-        <div className="mx-auto mt-12 max-w-2xl">
-          <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="mx-auto mt-16 max-w-2xl">
+          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             {testimonials.map((testimonial) => (
               <li
                 key={testimonial.author}
-                className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl"
+                className="rounded-3xl border border-white/15 bg-white/[0.03] p-7 backdrop-blur-xl backdrop-brightness-125"
               >
                 <p className="text-paper/90">&ldquo;{testimonial.quote}&rdquo;</p>
                 <p className="mt-4 font-mono text-xs uppercase tracking-wider text-paper/50">

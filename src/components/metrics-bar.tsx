@@ -4,9 +4,9 @@ import { Gauge } from "./gauge";
 
 export function MetricsBar() {
   return (
-    <section className="py-10 sm:py-12">
+    <section className="py-14 sm:py-16">
       <Container>
-        <div className="grid grid-cols-3 gap-3 sm:gap-8">
+        <div className="grid grid-cols-3 gap-6 sm:gap-12">
           {metrics.map((metric) => (
             <Gauge
               key={metric.label}

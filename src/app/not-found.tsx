@@ -4,7 +4,6 @@ import { Footer } from "@/components/footer";
 import { Container } from "@/components/container";
 import { Eyebrow } from "@/components/eyebrow";
 import { Gauge } from "@/components/gauge";
-import { ArrowRightIcon, ArrowUpRightIcon, SwitchIcon } from "@/components/icons";
 import { getWhatsappUrl } from "@/content/site";
 
 /**
@@ -20,31 +19,29 @@ export default function NotFound() {
       <Nav />
 
       <main className="flex-1">
-        <section className="pt-28 pb-20 sm:pt-36 sm:pb-28">
+        <section className="pt-32 pb-24 sm:pt-40 sm:pb-32">
           <Container>
             <div className="mx-auto flex max-w-lg flex-col items-center text-center">
               <Eyebrow>Erro 404</Eyebrow>
 
-              <div className="mt-8">
+              <div className="mt-10">
                 <Gauge value="—" label="Sem sinal" fraction={0} goodFrom={1} />
               </div>
 
-              <h1 className="mt-8 text-balance font-display text-3xl font-medium tracking-[-0.03em] text-paper sm:text-4xl">
+              <h1 className="mt-10 text-balance font-display text-3xl font-medium tracking-[-0.03em] text-paper sm:text-4xl">
                 Essa página não está no ar.
               </h1>
-              <p className="mt-4 text-base text-paper/70 sm:text-lg">
+              <p className="mt-5 text-base text-paper/70 sm:text-lg">
                 O endereço mudou ou nunca existiu. O resto do painel continua
                 funcionando normalmente.
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   href="/"
-                  className="group inline-flex items-center gap-2.5 rounded-md border border-accent px-6 py-3 font-mono text-sm text-paper transition hover:bg-accent/10 active:scale-[0.97]"
+                  className="rounded-xl bg-paper px-[30px] py-[15px] font-display text-[17px] font-medium tracking-[-0.01em] text-ink transition-colors duration-[180ms] ease-out hover:bg-accent hover:text-paper"
                 >
-                  <SwitchIcon className="h-3 w-6" />
                   Voltar para o início
-                  <ArrowRightIcon className="h-4 w-4" />
                 </Link>
                 <a
                   href={getWhatsappUrl(
@@ -52,10 +49,9 @@ export default function NotFound() {
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-mono text-sm text-paper/60 transition-colors hover:text-paper"
+                  className="rounded-xl border border-white/[0.14] px-[30px] py-[15px] font-display text-[17px] font-medium tracking-[-0.01em] text-[#A8A8A8] transition-colors duration-[180ms] ease-out hover:border-white/[0.32] hover:text-paper"
                 >
                   Falar com a gente
-                  <ArrowUpRightIcon className="h-4 w-4" />
                 </a>
               </div>
             </div>

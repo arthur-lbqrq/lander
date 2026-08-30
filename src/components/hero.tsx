@@ -1,73 +1,47 @@
-import type { CSSProperties } from "react";
 import { getWhatsappUrl } from "@/content/site";
-import { Container } from "./container";
-import { HeroMockupStage } from "./hero-mockup-stage";
-import { Eyebrow } from "./eyebrow";
-import { ArrowUpRightIcon, ArrowRightIcon, SwitchIcon } from "./icons";
 
 /**
- * Hero power-on sequence: eyebrow → headline → paragraph → CTA row → mockup
- * arrive as one authored beat (hero-rise, globals.css), each step ~80ms
- * after the last. The one focal entrance on the page — nothing else on the
- * site replays this pattern. Pure CSS: content is already in the markup,
- * this only staggers its rise, so a blocked script never hides it.
+ * Hero — design_handoff_navbar_hero/README.md (H1, subheadline, dois CTAs
+ * de texto puro — sem ícone, sem seta). O badge "NOVO / Agenda aberta..."
+ * do protótipo foi removido a pedido — não era uma claim real do negócio.
+ * CTAs mantêm o comportamento real do site (WhatsApp / âncora do
+ * portfólio) em vez das âncoras literais do protótipo (`#orcamento`), que
+ * não correspondem a nenhuma seção real da página.
+ *
+ * Sem fundo próprio (nem os feixes de luz do protótipo, ver hero-beams.tsx,
+ * unused): o Dark Veil site-wide (dark-veil-background.tsx) mostra através
+ * daqui como em qualquer outra seção, a pedido — um único fundo para a
+ * página inteira em vez de um fundo dedicado só no hero.
  */
-function riseStyle(delayMs: number): CSSProperties {
-  return {
-    animation: `hero-rise 600ms cubic-bezier(0.16, 1, 0.3, 1) ${delayMs}ms both`,
-  };
-}
-
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
-      <Container className="relative z-10">
-        <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-12">
-          <div>
-            <div style={riseStyle(0)}>
-              <Eyebrow>Estúdio de landing pages</Eyebrow>
-            </div>
-            <h1
-              style={riseStyle(80)}
-              className="mt-6 text-balance font-display text-4xl leading-[1.05] font-medium tracking-[-0.03em] text-paper sm:text-5xl lg:text-6xl lg:tracking-[-0.035em]"
-            >
-              Landing pages rápidas.
-              <br />
-              Feitas para <span className="text-accent">converter</span>.
-            </h1>
-            <p
-              style={riseStyle(160)}
-              className="mt-6 max-w-lg text-lg text-paper/70"
-            >
-              Estúdio freelance para pequenos negócios — do briefing ao ar,
-              em poucos dias.
-            </p>
-            <div style={riseStyle(240)} className="mt-10 flex flex-wrap items-center gap-6">
-              <a
-                href={getWhatsappUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2.5 rounded-md border border-accent px-6 py-3 font-mono text-sm text-paper transition hover:bg-accent/10 active:scale-[0.97]"
-              >
-                <SwitchIcon animated className="h-3 w-6" />
-                Falar no WhatsApp
-                <ArrowUpRightIcon className="h-4 w-4" />
-              </a>
-              <a
-                href="#trabalhos"
-                className="inline-flex items-center gap-1.5 font-mono text-sm text-paper/60 transition-colors hover:text-paper"
-              >
-                Ver portfólio
-                <ArrowRightIcon className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
+    <section className="relative min-h-[720px]">
+      <div className="relative flex flex-col items-center px-5 pt-32 pb-24 text-center min-[860px]:px-8 min-[860px]:pt-48 min-[860px]:pb-[140px]">
+        <h1 className="max-w-[860px] text-balance font-display text-[clamp(40px,9vw,76px)] leading-[1.02] font-medium tracking-[-0.04em] text-paper">
+          Landing pages que convertem em <span className="text-accent">dias</span>, não semanas
+        </h1>
 
-          <div style={riseStyle(320)}>
-            <HeroMockupStage />
-          </div>
+        <p className="mt-8 max-w-[560px] text-lg leading-[1.6] text-[#8A8A8A]">
+          Copy, design e performance numa página só — feita para uma única ação.
+        </p>
+
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-3.5">
+          <a
+            href={getWhatsappUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl bg-paper px-[30px] py-[15px] font-display text-[17px] font-medium tracking-[-0.01em] text-ink transition-colors duration-[180ms] ease-out hover:bg-accent hover:text-paper"
+          >
+            Pedir orçamento
+          </a>
+          <a
+            href="#trabalhos"
+            className="rounded-xl border border-white/[0.14] px-[30px] py-[15px] font-display text-[17px] font-medium tracking-[-0.01em] text-[#A8A8A8] transition-colors duration-[180ms] ease-out hover:border-white/[0.32] hover:text-paper"
+          >
+            Ver trabalhos
+          </a>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

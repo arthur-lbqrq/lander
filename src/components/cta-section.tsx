@@ -1,28 +1,25 @@
 import { getWhatsappUrl, siteConfig } from "@/content/site";
 import { Container } from "./container";
-import { ArrowUpRightIcon, SwitchIcon } from "./icons";
 
 export function CtaSection() {
   return (
-    <section className="py-20 sm:py-28">
+    <section className="py-24 sm:py-32">
       <Container>
-        <div className="rounded-3xl border border-white/10 bg-white/[0.04] px-8 py-16 text-center backdrop-blur-xl sm:px-16">
+        <div className="rounded-3xl border border-white/15 bg-white/[0.03] px-8 py-20 text-center backdrop-blur-xl backdrop-brightness-125 sm:px-16 sm:py-24">
           <h2 className="text-balance font-display text-3xl leading-[1.1] font-medium tracking-[-0.03em] text-paper sm:text-4xl">
             Vamos tirar sua landing page do papel?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base text-paper/70 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-xl text-base text-paper/70 sm:text-lg">
             Orçamento sem compromisso, direto no WhatsApp.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
               href={getWhatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 rounded-md border border-accent px-6 py-3 font-mono text-sm text-paper transition hover:bg-accent/10 active:scale-[0.97]"
+              className="rounded-xl bg-paper px-[30px] py-[15px] font-display text-[17px] font-medium tracking-[-0.01em] text-ink transition-colors duration-[180ms] ease-out hover:bg-accent hover:text-paper"
             >
-              <SwitchIcon className="h-3 w-6" />
               Falar no WhatsApp
-              <ArrowUpRightIcon className="h-4 w-4" />
             </a>
             <a
               href={`mailto:${siteConfig.email}`}

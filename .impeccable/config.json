@@ -23,6 +23,30 @@
         ],
         "createdAt": "2026-08-30T03:23:27.253Z",
         "reason": "vendored, unmodified original KokonutUI Flow Field component (user's explicit request); the gradient text lives only in its internal DefaultContent demo fallback, which the site never renders — real hero content is always passed via the children prop, suppressing DefaultContent entirely"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "17px",
+        "createdAt": "2026-08-30T05:32:31.925Z",
+        "reason": "Button Label size (Space Grotesk 500, large) from design_handoff_navbar_hero/README.md — hero/CTA-section/404 buttons. Documented in DESIGN.md Typography Hierarchy."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "19px",
+        "createdAt": "2026-08-30T05:32:32.036Z",
+        "reason": "Wordmark/Subheadline size from design_handoff_navbar_hero/README.md. Documented in DESIGN.md Typography Hierarchy."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "15px",
+        "createdAt": "2026-08-30T05:32:32.151Z",
+        "reason": "Nav Link / Button Label (compact) size from design_handoff_navbar_hero/README.md. Documented in DESIGN.md Typography Hierarchy."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "32px",
+        "createdAt": "2026-08-30T05:32:32.261Z",
+        "reason": "Mobile Menu Link size from design_handoff_navbar_hero/README.md. Documented in DESIGN.md Typography Hierarchy."
       }
     ]
   }

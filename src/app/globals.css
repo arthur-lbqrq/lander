@@ -77,41 +77,6 @@
 }
 
 /**
- * Hero power-on: the one focal entrance sequence on the page (see hero.tsx).
- * Pure CSS, no script dependency — content is already in the DOM and readable
- * before this runs, it only animates the rise. Never reused as a generic
- * "fade everything up" utility elsewhere.
- */
-@keyframes hero-rise {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/**
- * Switch-flip confirmation: one pulse on the hero's primary switch actuator,
- * timed to land as the power-on sequence finishes (see icons.tsx SwitchIcon
- * `animated` prop). Not used on the nav/CTA-section switches — those stay
- * static so this reads as a single authored moment, not a repeated tic.
- */
-@keyframes switch-pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.35);
-    opacity: 0.7;
-  }
-}
-
-/**
  * Mobile nav drawer: a real open transition instead of an instant swap,
  * explaining the state change (see nav.tsx). Entrance only — closing stays
  * instant, matching the drawer's existing instant unmount.
@@ -184,6 +149,20 @@
   }
   100% {
     transform: rotate(90deg);
+  }
+}
+
+/**
+ * Hero light beams — design_handoff_navbar_hero/README.md (hero-beams.tsx).
+ * Slow, decorative drift on the two blue beam layers behind the hero copy.
+ */
+@keyframes beam-drift {
+  0%,
+  100% {
+    transform: translateX(-4%) scaleY(1);
+  }
+  50% {
+    transform: translateX(4%) scaleY(1.06);
   }
 }
 

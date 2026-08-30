@@ -12,10 +12,10 @@ export function Portfolio() {
   const soonCount = projects.length - liveProjects.length;
 
   return (
-    <section id="trabalhos" className="scroll-mt-20 py-20 sm:py-28">
+    <section id="trabalhos" className="scroll-mt-20 py-24 sm:py-32">
       <Container>
         <SectionHeading eyebrow="Trabalhos" title="Projetos selecionados" />
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="mt-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:gap-12">
           {liveProjects.map((project, index) => (
             <Reveal key={project.id} delay={index * MAX_STAGGER_MS} className="h-full">
               <PortfolioCard project={project} />
@@ -23,7 +23,7 @@ export function Portfolio() {
           ))}
         </div>
         {soonCount > 0 ? (
-          <div className="mt-6 inline-flex items-center gap-3 rounded-full border border-dashed border-white/20 px-5 py-2.5">
+          <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-dashed border-white/20 px-5 py-2.5">
             <BrandMark className="h-4 w-4 shrink-0 text-paper/25" />
             <p className="font-mono text-xs uppercase tracking-wider text-paper/50">
               +{soonCount} {soonCount === 1 ? "projeto" : "projetos"} em breve
