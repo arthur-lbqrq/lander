@@ -66,6 +66,24 @@
   }
 }
 
+/**
+ * Navbar power-on: a rounded reveal window starts as a circle at the pill's
+ * own center (roughly its height in diameter, so it matches the pill's own
+ * curvature) and opens outward horizontally — top/bottom inset stays 0 the
+ * whole time, only the side insets shrink — until the full pill is
+ * revealed (see nav.tsx). `clip-path`, not `transform`/`scale`: the pill's
+ * real content (logo, links, CTA) is never resized or distorted, only
+ * progressively uncovered.
+ */
+@keyframes navbar-open {
+  from {
+    clip-path: inset(0 calc(50% - 20px) 0 calc(50% - 20px) round 9999px);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 9999px);
+  }
+}
+
 @keyframes blink {
   0%,
   100% {

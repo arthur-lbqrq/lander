@@ -21,6 +21,16 @@ const navLinks = [
  * escurece/reforça a pill ao rolar (>24px, per handoff); `open` controla o
  * painel mobile full-screen, com trava de scroll do body, fechamento em
  * Escape e em clique fora, conforme a seção State Management do handoff.
+ *
+ * Abre com `navbar-open` (globals.css) ao carregar a página: uma janela de
+ * revelação arredondada começa como um círculo no centro da pill (do
+ * tamanho da sua própria altura) e se abre na horizontal até revelar a
+ * pill inteira. É `clip-path`, não `transform`/`scale` — a marca, os links
+ * e o CTA nunca são redimensionados ou distorcidos, só progressivamente
+ * descobertos, permanecendo estáticos o tempo todo. 1.5s, ease-in-out
+ * (`cubic-bezier(0.65, 0, 0.35, 1)`, já usada em power-trace) em vez da
+ * curva ease-out mais rápida do resto do site, pra ler como fluida nessa
+ * duração em vez de uma partida brusca.
  */
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -74,6 +84,7 @@ export function Nav() {
           border: `1px solid rgba(250,250,250,${scrolled ? 0.16 : 0.1})`,
           background: `rgba(16,16,18,${scrolled ? 0.78 : 0.55})`,
           backdropFilter: "blur(18px) saturate(1.2)",
+          animation: "navbar-open 1500ms cubic-bezier(0.65, 0, 0.35, 1) both",
         }}
       >
         <a
