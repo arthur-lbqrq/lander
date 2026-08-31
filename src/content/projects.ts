@@ -1,5 +1,5 @@
 import type { StaticImageData } from "next/image";
-import tinoScreenshot from "./images/tino.png";
+import tinoScreenshot from "./images/faro.png";
 import concrepisosScreenshot from "./images/concrepisos.png";
 import jlsportsScreenshot from "./images/jlsports.png";
 import xodokidsScreenshot from "./images/xodokids.png";
@@ -33,7 +33,7 @@ export const projects: Project[] = [
   {
     status: "live",
     id: "projeto-01",
-    client: "Tino",
+    client: "Faro",
     description: "SaaS financeiro que antecipa problemas de caixa.",
     tag: "SaaS Financeiro",
     image: tinoScreenshot,
